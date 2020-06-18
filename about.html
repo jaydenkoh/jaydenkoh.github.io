@@ -1,0 +1,63 @@
+<!DOCTYPE html
+<html>
+<head>
+  <title>[BETA] Jayden Koh's Official Website</title>
+  <meta name="viewport" content="width=device-width,initial-scale-1">
+  <link rel="stylesheet" type="text/css" href="CSS/style_1.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/png" href="logo2.png">
+</head>
+<body>
+    <div class="hero">
+    <div class="nav-bar">
+        <div class="nav-logo">
+            <img src="logo.png" alt="logo">
+        </div>
+        <div class="nav-links" id="nav-links">
+          <i class="fa fa-close" onclick="closeMenu()"></i>
+            <ul>
+                <a href="index.html"><li>HOME</li></a>
+                <a href="about.html"><li>ABOUT</li></a>
+                <a href="social_media.html"><li>Social Media</li></a>
+            </ul>
+            <button type="button" class="btn" onclick="alert('coming soon')">MORE</button>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+        </div>
+        <div class="banner-title">
+          <h1>About <span>Me</span></h1>
+        </div>
+        <div class="aboutmeinparagraph">
+          <p>Beginner to coding, part-time YouTuber and full-time student...</p>
+          <br>
+          <button type="button" class="btn" onclick=" window.open('https://www.youtube.com/channel/UCZFkQeRhb8-GhJmshoJolXA','_blank')">Subscribe to Me!</button>
+          <br>
+          <br>
+          <button type="button" class="btn" onclick=" window.open('https://www.youtube.com/watch?v=9mZFSBrq-m8','_blank')">My Latest Video!</button>
+        </div>
+        <div class="vertical-bar">
+          <div class="search-icons">
+             <i class="fa fa-th-list" onclick="alert('this does not work unless you resize the browser')"></i>
+             <i class="fa fa-search" onclick="alert('this does not work too')"></i>
+          </div>
+          <div class="social-icons">
+           <div class="list-group">
+             <a href="" style="text-decoration:none" onclick=" window.open('https://www.instagram.com/whyubulimeh_jayden','_blank')"><i class="fa fa-instagram"></i></a>
+             <a href="" style="text-decoration:none" onclick=" window.open('https://www.youtube.com/channel/UCZFkQeRhb8-GhJmshoJolXA','_blank')"><i class="fa fa-youtube-play"></i></a>
+             <a href="" style="text-decoration:none" onclick=" window.open('https://www.facebook.com/jaydenkoh15','_blank')"><i class="fa fa-facebook"></i></a>
+          </div>
+        </div>
+    </div>
+   <script>
+    var show = document.getElementById("nav-links");
+     function showMenu(){
+       show.style.right = "0";
+
+     }
+     function closeMenu(){
+       show.style.right = "-200px";
+
+     }
+   </script>
+</body>
+</html>
