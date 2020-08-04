@@ -1,7 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172121491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-172121491-1');
+    </script>
+<meta name="viewport" content="width=device-width,
     user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
 <meta name="apple-mle-mobile-web-app-status-bar-style" content="black-translucent" />
 <link rel="icoobile-web-app-capable" content="yes" />
@@ -23,11 +31,11 @@ canvas { display: block; margin: 0 auto; background: #fff; }
 // http://paulirish.com/2011/requestanimationframe-for-smart-animating
 // shim layer with setTimeout fallback
 window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       || 
-          window.webkitRequestAnimationFrame || 
-          window.mozRequestAnimationFrame    || 
-          window.oRequestAnimationFrame      || 
-          window.msRequestAnimationFrame     || 
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          window.oRequestAnimationFrame      ||
+          window.msRequestAnimationFrame     ||
           function( callback ){
             window.setTimeout(callback, 1000 / 60);
           };
@@ -37,8 +45,8 @@ window.requestAnimFrame = (function(){
 var POP = {
 
     // set up some inital values
-    WIDTH: 320, 
-    HEIGHT:  480, 
+    WIDTH: 320,
+    HEIGHT:  480,
     scale:  1,
     // the position of the canvas
     // in relation to the screen
@@ -67,7 +75,7 @@ var POP = {
     ios:  null,
 
     init: function() {
-   
+
         // the proportion of width to height
         POP.RATIO = POP.WIDTH / POP.HEIGHT;
         // these will change when the screen is resize
@@ -80,7 +88,7 @@ var POP = {
         // default to 320x200
         POP.canvas.width = POP.WIDTH;
         POP.canvas.height = POP.HEIGHT;
-        // the canvas context allows us to 
+        // the canvas context allows us to
         // interact with the canvas api
         POP.ctx = POP.canvas.getContext('2d');
         // we need to sniff out android & ios
@@ -99,8 +107,8 @@ var POP = {
             r: 50, // circle radius
             time: 0, // we'll use this in calculating the sine wave
             offset: 0 // this will be the sine wave offset
-        }; 
-        // calculate how many circles we need to 
+        };
+        // calculate how many circles we need to
         // cover the screen width
         POP.wave.total = Math.ceil(POP.WIDTH / POP.wave.r) + 1;
 
@@ -139,7 +147,7 @@ var POP = {
 
 
     resize: function() {
-    
+
         POP.currentHeight = window.innerHeight;
         // resize the width in proportion
         // to the new height
@@ -180,7 +188,7 @@ var POP = {
         var i,
             checkCollision = false; // we only need to check for a collision
                                 // if the user tapped on this game tick
- 
+
 
         // decrease our nextBubble counter
         POP.nextBubble -= 1;
@@ -195,7 +203,7 @@ var POP = {
         // spawn a new instance of Touch
         // if the user has tapped the screen
         if (POP.Input.tapped) {
-            // keep track of taps; needed to 
+            // keep track of taps; needed to
             // calculate accuracy
             POP.score.taps += 1;
             // add a new touch
@@ -212,18 +220,18 @@ var POP = {
             POP.entities[i].update();
 
             if (POP.entities[i].type === 'bubble' && checkCollision) {
-                hit = POP.collides(POP.entities[i], 
+                hit = POP.collides(POP.entities[i],
                                     {x: POP.Input.x, y: POP.Input.y, r: 7});
                 if (hit) {
                     // spawn an exposion
                     for (var n = 0; n < 5; n +=1 ) {
                         POP.entities.push(new POP.Particle(
-                            POP.entities[i].x, 
-                            POP.entities[i].y, 
-                            2, 
+                            POP.entities[i].x,
+                            POP.entities[i].y,
+                            2,
                             // random opacity to spice it up a bit
                             'rgba(255,255,255,'+Math.random()*1+')'
-                        )); 
+                        ));
                     }
                     POP.score.hit += 1;
                 }
@@ -265,10 +273,10 @@ var POP = {
         for (i = 0; i < POP.wave.total; i++) {
 
             POP.Draw.circle(
-                        POP.wave.x + POP.wave.offset +  (i * POP.wave.r), 
+                        POP.wave.x + POP.wave.offset +  (i * POP.wave.r),
                         POP.wave.y,
-                        POP.wave.r, 
-                        '#fff'); 
+                        POP.wave.r,
+                        '#fff');
         }
 
             // cycle through all entities and render to canvas
@@ -302,7 +310,7 @@ var POP = {
 // checks if two entties are touching
 POP.collides = function(a, b) {
 
-        var distance_squared = ( ((a.x - b.x) * (a.x - b.x)) + 
+        var distance_squared = ( ((a.x - b.x) * (a.x - b.x)) +
                                 ((a.y - b.y) * (a.y - b.y)));
 
         var radii_squared = (a.r + b.r) * (a.r + b.r);
@@ -376,7 +384,7 @@ POP.Touch = function(x, y) {
 
     this.update = function() {
         // reduct the opacity accordingly
-        this.opacity -= this.fade; 
+        this.opacity -= this.fade;
         // if opacity if 0 or less, flag for removal
         this.remove = (this.opacity < 0) ? true : false;
     };
@@ -392,7 +400,7 @@ POP.Bubble = function() {
     this.type = 'bubble';
     this.r = (Math.random() * 20) + 10;
     this.speed = (Math.random() * 3) + 1;
- 
+
     this.x = (Math.random() * (POP.WIDTH) - this.r);
     this.y = POP.HEIGHT + (Math.random() * 100) + 100;
 
