@@ -1,4 +1,4 @@
-<script>
+
 /* Get the documentElement (<html>) to display the page in fullscreen */
 var elem = document.documentElement;
 
@@ -23,9 +23,7 @@ if (document.exitFullscreen) {
   document.msExitFullscreen();
 }
 }
-</script>
 
-<script>
 function noScroll() {
 window.scrollTo(0, 0);
 }
@@ -35,5 +33,3 @@ window.addEventListener('scroll', noScroll);
 
 // Remove listener to re-enable scroll
 window.removeEventListener('scroll', noScroll);
-
-</script>
