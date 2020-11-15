@@ -17,7 +17,7 @@
                 display: block;
                 z-index: 99999;
                 height: 100vh;
-                background: url('./gif/preloader.gif') center center no-repeat;
+                background: url('https://jaydenkoh.github.io/gif/preloader.gif') center center no-repeat;
                 background-color: white;
                 position: fixed;
                 top: 0;
