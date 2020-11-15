@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172121491-1"></script>
+    <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+       gtag('config', 'UA-172121491-1');
+    </script>
+    <meta name="viewport" content="width=device-width,initial-scale-1">
+    <meta charset="utf-8">
+    <title>Tools</title>
+    <link rel="icon" type="image/png" href="logo2.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <head>
+     <style>
+       * {
+        font-family: sans-serif;
+       }
+
+       a {
+         color: black;
+       }
+     </style>
+  </head>
+
+  <body>
+    <script>
+    $(document).ready(function(){
+    // Add smooth scrolling to all links
+    $("a").on('click', function(event) {
+
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+    });
+    </script>
+
+  <script src="js/preloader.js" charset="utf-8"></script>
+    
+    <h1 id="top" style="text-decoration: underline;">Tools</h1>
+
+    <hr>
+
+    <p><span style="font-weight: bold;">Description: </span>Tools that I created using HTML (Hypertext Markup Language), Javascript and CSS (Cascading Stylesheet)</p>
+
+    <hr>
+
+    <h2 id="moregames">Projects:</h2>
+
+    <ul>
+      <li><a href="https://jaydenkoh.github.io/random-number-generator/">Random Number Generator</a></li>
+      <br>
+      <li><a href="https://jaydenkoh.github.io/weight-converter/">Weight Converter</a></li>
+      <br>
+      <li><a href="https://jaydenkoh.github.io/temperature-converter/">Temperature Converter</a></li>
+      <br>
+      <li><a href="https://jaydenkoh.github.io/length-converter">Length Converter (Work In Progress)</a></li>
+    </ul>
+
+    <hr>
+
+    <h2>Comments Section</h2>
+
+    <!--disqus comment section-->
+
+    <div id="disqus_thread"></div>
+    <script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jaydenkoh-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  <script>
+    $(document).ready(function(){
+      $(window).scroll(function(){
+          if ($(this).scrollTop() > 100) {
+              $('.scrollUpButton').fadeIn();
+          } else {
+              $('.scrollUpButton').fadeOut();
+          }
+      });
+      $('.scrollUpButton').click(function(){
+          $("html, body").animate({ scrollTop: 0 }, 500);
+          return false;
+      });
+  });
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode().showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
+
+  </body>
+</html>
